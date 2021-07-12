@@ -1,0 +1,30 @@
+mixed-port: 7890
+redir-port: 7891
+tproxy-port: 7892
+mode: rule
+log-level: info
+external-controller: 127.0.0.1:9090
+external-ui: yacd-gh-pages
+dns:
+  enable: true
+  ipv6: false
+  listen: 0.0.0.0:1053
+  enhanced-mode: redir-host # fake-ip
+#  fake-ip-filter:
+#    - 'stun.*.*'
+#    - 'stun.*.*.*'
+#    - 'stun.*.*.*.*'
+  nameserver:
+#    - 192.168.88.1:53  
+    - 223.5.5.5:53
+    - 114.114.114.114:53
+#    - 211.137.130.2:53
+#    - 221.11.1.67:53
+    - 1.1.1.1:53
+  fallback:
+#    - https://162.159.36.1/dns-query
+#    - https://162.159.46.1/dns-query
+    - https://1.1.1.1/dns-query
+    - https://1.0.0.1/dns-query
+#    - https://139.224.112.177/dns-query
+#    - https://162.14.13.12/dns-query
