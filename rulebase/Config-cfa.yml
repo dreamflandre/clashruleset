@@ -4,5 +4,3 @@ allow-lan: false
 mode: rule
 log-level: info
 ipv6: true
-external-controller: 0.0.0.0:9090
-external-ui: yacd-gh-pages
