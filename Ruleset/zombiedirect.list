@@ -5,3 +5,5 @@ DOMAIN-SUFFIX,right.com.cn
 DOMAIN-SUFFIX,lt2333.com
 #bitwarden
 DOMAIN,zombiep.duckdns.org
+#订阅转换
+DOMAIN,sub.xeton.dev
