@@ -2,3 +2,4 @@
 #电脑进程
 PROCESS-NAME,anki.exe
 PROCESS-NAME,QQ.exe
+PROCESS-NAME,qbittorrent.exe
