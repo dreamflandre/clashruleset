@@ -7,3 +7,15 @@ DOMAIN-SUFFIX,lt2333.com
 DOMAIN,zombiep.duckdns.org
 #订阅转换
 DOMAIN,sub.xeton.dev
+# bt
+DOMAIN-SUFFIX,smtp
+DOMAIN-KEYWORD,aria2
+DOMAIN-KEYWORD,torrent
+DOMAIN-KEYWORD,peer_id=
+DOMAIN-KEYWORD,info_hash
+DOMAIN-KEYWORD,get_peers
+DOMAIN-KEYWORD,find_node
+DOMAIN-KEYWORD,announce_peer
+DOMAIN-KEYWORD,BitTorrent
+DOMAIN-KEYWORD,BitTorrent protocol
+DOMAIN-KEYWORD,announce
