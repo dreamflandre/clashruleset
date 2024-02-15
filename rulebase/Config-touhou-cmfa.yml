@@ -1,0 +1,67 @@
+---
+socks-port: 7891
+redir-port: 7892
+tproxy-port: 7893
+mixed-port: 7890
+allow-lan: false
+bind-address: '*'
+mode: rule
+geox-url:
+  geoip: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat
+  geosite: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat
+  mmdb: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.metadb
+geo-auto-update: true
+geo-update-interval: 24
+log-level: info
+ipv6: true
+external-controller: 127.0.0.1:9090
+secret: ""
+routing-mark: 6666
+profile:
+  store-selected: true
+  store-fake-ip: true
+dns:
+  enable: true
+  prefer-h3: true
+  listen: 0.0.0.0:53
+  ipv6: true
+  default-nameserver:
+  - dhcp://system
+  - https://1.12.12.12/dns-query
+  - https://223.5.5.5/dns-query
+  - 119.29.29.29
+  - 223.5.5.5
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+  - '*.lan'
+  - localhost.ptlogin2.qq.com
+  - '*.msftconnecttest.com'
+  - '*.msftncsi.com'
+  - '*.srv.nintendo.net'
+  - '*.stun.playstation.net'
+  - xbox.*.microsoft.com
+  - '*.xboxlive.com'
+  - '*.logon.battlenet.com.cn'
+  - '*.logon.battle.net'
+  - stun.l.google.com
+  use-hosts: true
+  nameserver:
+  - https://doh.pub/dns-query
+  - https://dns.alidns.com/dns-query  
+  - dhcp://system
+  fallback:
+  - "https://dns.google/dns-query#🚀 节点选择"
+  - "https://cloudflare-dns.com/dns-query#🚀 节点选择"
+  - "8.8.8.8#🚀 节点选择"
+  - "1.1.1.1#🚀 节点选择"
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+    - 240.0.0.0/4
+  nameserver-policy:
+    geosite:cn,private:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+    - dhcp://system
