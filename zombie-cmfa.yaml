@@ -172,16 +172,6 @@ proxy-groups:
     proxies:
       - DIRECT
       - 🚀 节点选择
-  - name: 🛑 广告拦截
-    type: select
-    proxies:
-      - REJECT
-      - DIRECT
-  - name: 🍃 应用净化
-    type: select
-    proxies:
-      - REJECT
-      - DIRECT
   - name: 🐟 漏网之鱼
     type: select
     proxies:
@@ -243,24 +233,6 @@ rule-providers:
     behavior: classical
     path: ./RuleSet/LocalAreaNetwork.yaml
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml
-    interval: 86400
-  UnBan:
-    type: http
-    behavior: classical
-    path: ./RuleSet/UnBan.yaml
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/UnBan.yaml
-    interval: 86400
-  BanAD:
-    type: http
-    behavior: classical
-    path: ./RuleSet/BanAD.yaml
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanAD.yaml
-    interval: 86400
-  BanProgramAD:
-    type: http
-    behavior: classical
-    path: ./RuleSet/BanProgramAD.yaml
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanProgramAD.yaml
     interval: 86400
   GoogleCN:
     type: http
@@ -332,9 +304,6 @@ rules:
   - RULE-SET,E-hentai,🍆 E-hentai
   - RULE-SET,zombiedirect,🎯 全球直连
   - RULE-SET,LocalAreaNetwork,🎯 全球直连
-  - RULE-SET,UnBan,🎯 全球直连
-  - RULE-SET,BanAD,🛑 广告拦截
-  - RULE-SET,BanProgramAD,🍃 应用净化
   - RULE-SET,GoogleCN,🎯 全球直连
   - RULE-SET,SteamCN,🎯 全球直连
   - RULE-SET,OneDrive,Ⓜ️ 微软云盘
