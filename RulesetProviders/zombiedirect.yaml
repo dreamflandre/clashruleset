@@ -77,3 +77,6 @@ payload:
   - DOMAIN-KEYWORD,BitTorrent
   - DOMAIN-KEYWORD,BitTorrent protocol
   - DOMAIN-KEYWORD,announce
+#私房菜机场自定义
+  - DOMAIN,subcdn.cos.cat
+  - DOMAIN-SUFFIX,speedtest.net
