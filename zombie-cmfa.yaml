@@ -1,3 +1,115 @@
+######### 锚点 start #######
+
+#这里是订阅更新和延迟测试相关的
+p: &p {type: http, interval: 259200, health-check: {enable: true, url: https://www.gstatic.com/generate_204, interval: 3600}}
+
+#策略组相关
+pr: &pr {type: select, proxies: [🚀 节点选择,🚀 手动切换,🚀 专线,🇭🇰 香港节点,🇯🇵 日本节点,🇨🇳 台湾节点,🇸🇬 狮城节点,🇺🇲 美国节点,🇰🇷 韩国节点,DIRECT]}
+
+# 规则集合相关
+rp: &rp {type: http, behavior: classical, interval: 259200}
+
+######### 锚点 end #######
+      
+proxy-providers:
+  
+  机场1:
+    <<: *p
+    url: "[机场链接]"
+
+  
+proxy-groups:
+  - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点,🇯🇵 日本节点,🇨🇳 台湾节点,🇸🇬 狮城节点,🇺🇲 美国节点,🇰🇷 韩国节点,🚀 手动切换,🚀 专线,DIRECT]}
+  - {name: 🍆 E-hentai, type: select , include-all-providers: true}
+  - {name: 📲 电报消息, <<: *pr}
+  - {name: 🎶 油管音乐, <<: *pr}
+  - {name: 🌍 国外媒体, <<: *pr}
+  - {name: 🌏 国内媒体, type: select, proxies: [DIRECT,🇭🇰 香港节点,🇯🇵 日本节点,🇨🇳 台湾节点,🇸🇬 狮城节点,🇺🇲 美国节点,🇰🇷 韩国节点,🚀 手动切换,🚀 专线]}
+  - {name: Ⓜ️ 微软云盘, type: select, proxies: [DIRECT,🇭🇰 香港节点,🇯🇵 日本节点,🇨🇳 台湾节点,🇸🇬 狮城节点,🇺🇲 美国节点,🇰🇷 韩国节点,🚀 手动切换,🚀 专线]}
+  - {name: 🐟 漏网之鱼, <<: *pr}
+  - {name: 🎯 全球直连, type: select, proxies: [DIRECT,🚀 节点选择]}
+
+  #分隔,下面是地区分组
+  - {name: 🚀 专线, type: select , include-all-providers: true, filter: "(?i)专线"}
+  - {name: 🚀 手动切换, type: select , include-all-providers: true}
+  - {name: 🇭🇰 香港节点, type: select , include-all-providers: true, filter: "(?i)港|hk|hongkong|hong kong"}
+  - {name: 🇯🇵 日本节点, type: select , include-all-providers: true, filter: "(?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan"}
+  - {name: 🇨🇳 台湾节点, type: select , include-all-providers: true, filter: "(?i)台|新北|彰化|TW|Taiwan"}
+  - {name: 🇸🇬 狮城节点, type: select , include-all-providers: true, filter: "(?i)新加坡|坡|狮城|SG|Singapore"}
+  - {name: 🇺🇲 美国节点, type: select , include-all-providers: true, filter: "(?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States"}
+  - {name: 🇰🇷 韩国节点, type: select , include-all-providers: true, filter: "(?i)KR|Korea|KOR|首尔|韩|韓"}
+
+rule-providers:
+  E-hentai:
+    <<: *rp
+    url: "https://raw.githubusercontent.com/dreamflandre/clashruleset/main/RulesetProviders/E-hentai.yaml"
+  zombiedirect:
+    <<: *rp
+    url: "https://raw.githubusercontent.com/dreamflandre/clashruleset/main/RulesetProviders/zombiedirect.yaml"
+  LocalAreaNetwork:
+    <<: *rp
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml"
+  UnBan:
+    <<: *rp
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/UnBan.yaml"
+  BanAD:
+    <<: *rp
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanAD.yaml"
+  BanProgramAD:
+    <<: *rp
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanProgramAD.yaml"
+  GoogleCN:
+    <<: *rp
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml"
+  SteamCN:
+    <<: *rp
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/SteamCN.yaml"
+  OneDrive:
+    <<: *rp
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OneDrive.yaml"
+  Telegram:
+    <<: *rp
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Telegram.yaml"
+  YouTubeMusic:
+    <<: *rp
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/YouTubeMusic.yaml"
+  ChinaMedia:
+    <<: *rp
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaMedia.yaml"
+  ProxyMedia:
+    <<: *rp
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyMedia.yaml"
+  ProxyGFWlist:
+    <<: *rp
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyGFWlist.yaml"
+  ChinaDomain:
+    <<: *rp
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml"
+  ChinaCompanyIp:
+    <<: *rp
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml"
+  Download:
+    <<: *rp
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Download.yaml"
+    
+rules:
+  - RULE-SET,E-hentai,🍆 E-hentai
+  - RULE-SET,zombiedirect,🎯 全球直连
+  - RULE-SET,LocalAreaNetwork,🎯 全球直连
+  - RULE-SET,GoogleCN,🎯 全球直连
+  - RULE-SET,SteamCN,🎯 全球直连
+  - RULE-SET,OneDrive,Ⓜ️ 微软云盘
+  - RULE-SET,Telegram,📲 电报消息
+  - RULE-SET,YouTubeMusic,🎶 油管音乐
+  - RULE-SET,ChinaMedia,🌏 国内媒体
+  - RULE-SET,ProxyMedia,🌍 国外媒体
+  - RULE-SET,ProxyGFWlist,🚀 节点选择
+  - RULE-SET,ChinaDomain,🎯 全球直连
+  - RULE-SET,ChinaCompanyIp,🎯 全球直连
+  - RULE-SET,Download,🎯 全球直连
+  - GEOIP,CN,🎯 全球直连
+  - MATCH,🐟 漏网之鱼
+#其他配置
 socks-port: 7891
 redir-port: 7892
 tproxy-port: 7893
@@ -65,255 +177,3 @@ dns:
       - https://doh.pub/dns-query
       - https://dns.alidns.com/dns-query
       - dhcp://system
-
-proxy-providers:
-  
-  机场:
-    type: http
-    url: "[机场链接]"
-    path: ./ProxyProviders/机场.yaml
-    interval: 86400
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 3600
-  
-proxy-groups:
-  - name: 🚀 节点选择
-    type: select
-    proxies:
-      - 🚀 专线
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇸🇬 狮城节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
-      - 🇰🇷 韩国节点
-      - 🚀 游戏
-      - 🚀 手动切换
-      - DIRECT
-  - name: 🍆 E-hentai
-    type: select
-    use:
-      - 机场      
-  - name: 🚀 手动切换
-    type: select
-    use:
-      - 机场
-  - name: 🚀 游戏
-    type: select
-    proxies:
-      - DIRECT
-  - name: 🚀 专线
-    type: select
-    use:
-      - 机场
-    filter: "专线"
-  - name: 📲 电报消息
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - 🚀 专线
-      - 🇸🇬 狮城节点
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
-      - 🇰🇷 韩国节点
-      - 🚀 手动切换
-      - DIRECT
-  - name: 🎶 youtube音乐
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇸🇬 狮城节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
-      - 🇰🇷 韩国节点
-      - 🚀 手动切换
-      - DIRECT
-  - name: 🌍 国外媒体
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇸🇬 狮城节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
-      - 🇰🇷 韩国节点
-      - 🚀 手动切换
-      - DIRECT
-  - name: 🌏 国内媒体
-    type: select
-    proxies:
-      - DIRECT
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇸🇬 狮城节点
-      - 🇯🇵 日本节点
-      - 🚀 手动切换
-  - name: Ⓜ️ 微软云盘
-    type: select
-    proxies:
-      - DIRECT
-      - 🚀 节点选择
-      - 🇺🇲 美国节点
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇸🇬 狮城节点
-      - 🇯🇵 日本节点
-      - 🇰🇷 韩国节点
-      - 🚀 手动切换
-  - name: 🎯 全球直连
-    type: select
-    proxies:
-      - DIRECT
-      - 🚀 节点选择
-  - name: 🐟 漏网之鱼
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - DIRECT
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇸🇬 狮城节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
-      - 🇰🇷 韩国节点
-      - 🚀 手动切换
-  - name: 🇭🇰 香港节点
-    type: select 
-    use:
-      - 机场
-    filter: "港|HK|Hong Kong"
-  - name: 🇯🇵 日本节点
-    type: select
-    use:
-      - 机场
-    filter: "日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan"
-  - name: 🇺🇲 美国节点
-    type: select
-    use:
-      - 机场
-    filter: "美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States"
-  - name: 🇸🇬 狮城节点
-    type: select
-    use:
-      - 机场
-    filter: "新加坡|坡|狮城|SG|Singapore"
-  - name: 🇨🇳 台湾节点
-    type: select
-    use:
-      - 机场
-    filter: "台|新北|彰化|TW|Taiwan"
-  - name: 🇰🇷 韩国节点
-    type: select
-    use:
-      - 机场
-    filter: "KR|Korea|KOR|首尔|韩|韓"
-
-rule-providers:
-  E-hentai:
-    type: http
-    behavior: classical
-    path: ./RuleSet/E-hentai.yaml
-    url: https://raw.githubusercontent.com/dreamflandre/clashruleset/main/RulesetProviders/E-hentai.yaml
-    interval: 86400   
-  zombiedirect:
-    type: http
-    behavior: classical
-    path: ./RuleSet/zombiedirect.yaml
-    url: https://raw.githubusercontent.com/dreamflandre/clashruleset/main/RulesetProviders/zombiedirect.yaml
-    interval: 86400   
-  LocalAreaNetwork:
-    type: http
-    behavior: classical
-    path: ./RuleSet/LocalAreaNetwork.yaml
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml
-    interval: 86400
-  GoogleCN:
-    type: http
-    behavior: classical
-    path: ./RuleSet/BanAD.yaml
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml
-    interval: 86400
-  SteamCN:
-    type: http
-    behavior: classical
-    path: ./RuleSet/SteamCN.yaml
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/SteamCN.yaml
-    interval: 86400    
-  OneDrive:
-    type: http
-    behavior: classical
-    path: ./RuleSet/OneDrive.yaml
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OneDrive.yaml
-    interval: 86400    
-  Telegram:
-    type: http
-    behavior: classical
-    path: ./RuleSet/Telegram.yaml
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Telegram.yaml
-    interval: 86400    
-  YouTubeMusic:
-    type: http
-    behavior: classical
-    path: ./RuleSet/YouTubeMusic.yaml
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/YouTubeMusic.yaml
-    interval: 86400    
-  ChinaMedia:
-    type: http
-    behavior: classical
-    path: ./RuleSet/ChinaMedia.yaml
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaMedia.yaml
-    interval: 86400    
-  ProxyMedia:
-    type: http
-    behavior: classical
-    path: ./RuleSet/ProxyMedia.yaml
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyMedia.yaml
-    interval: 86400    
-  ProxyGFWlist:
-    type: http
-    behavior: classical
-    path: ./RuleSet/ProxyGFWlist.yaml
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyGFWlist.yaml
-    interval: 86400
-  ChinaDomain:
-    type: http
-    behavior: classical
-    path: ./RuleSet/ChinaDomain.yaml
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml
-    interval: 86400
-  ChinaCompanyIp:
-    type: http
-    behavior: classical
-    path: ./RuleSet/ChinaCompanyIp.yaml
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml
-    interval: 86400
-  Download:
-    type: http
-    behavior: classical
-    path: ./RuleSet/Download.yaml
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Download.yaml
-    interval: 86400
-rules:
-  - RULE-SET,E-hentai,🍆 E-hentai
-  - RULE-SET,zombiedirect,🎯 全球直连
-  - RULE-SET,LocalAreaNetwork,🎯 全球直连
-  - RULE-SET,GoogleCN,🎯 全球直连
-  - RULE-SET,SteamCN,🎯 全球直连
-  - RULE-SET,OneDrive,Ⓜ️ 微软云盘
-  - RULE-SET,Telegram,📲 电报消息
-  - RULE-SET,YouTubeMusic,🎶 youtube音乐
-  - RULE-SET,ChinaMedia,🌏 国内媒体
-  - RULE-SET,ProxyMedia,🌍 国外媒体
-  - RULE-SET,ProxyGFWlist,🚀 节点选择
-  - RULE-SET,ChinaDomain,🎯 全球直连
-  - RULE-SET,ChinaCompanyIp,🎯 全球直连
-  - RULE-SET,Download,🎯 全球直连
-  - GEOIP,CN,🎯 全球直连
-  - MATCH,🐟 漏网之鱼
