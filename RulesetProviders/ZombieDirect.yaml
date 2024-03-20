@@ -77,6 +77,8 @@ payload:
   - DOMAIN-KEYWORD,BitTorrent
   - DOMAIN-KEYWORD,BitTorrent protocol
   - DOMAIN-KEYWORD,announce
+#小米云备份
+  - DOMAIN,a0.app.xiaomi.com
 #机场自定义
   - DOMAIN,subcdn.cos.cat
   - DOMAIN,api.touhou.center
