@@ -104,3 +104,11 @@ payload:
   - DOMAIN-SUFFIX,nelreports.net
   - DOMAIN-KEYWORD,azurefd
   - DOMAIN-KEYWORD,microsoft-com.akamaized
+# EPIC游戏下载、更新[国际]
+  - DOMAIN,ipv4.egdownload.fastly-edge.com
+  - DOMAIN,fastly-download.epicgames.com
+  - DOMAIN,epicgames-download1.akamaized.net
+  - DOMAIN,download.epicgames.com
+  - DOMAIN,download2.epicgames.com
+  - DOMAIN,download3.epicgames.com
+  - DOMAIN,download4.epicgames.com
