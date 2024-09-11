@@ -1,6 +1,8 @@
 payload:
 #zerotier
 #PROCESS-NAME,zerotier-one_x64.exe
+#bt下载软件
+  - PROCESS-NAME,aria2c.exe
 #steam
   - DOMAIN,steamcdn-a.akamaihd.net
   - DOMAIN,cdn.steamstatic.com
