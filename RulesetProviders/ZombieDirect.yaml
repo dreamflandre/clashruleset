@@ -116,3 +116,6 @@ payload:
   - DOMAIN,download4.epicgames.com
 # dandanplayapi
   - DOMAIN,api.dandanplay.net
+# inficloud
+  - DOMAIN-SUFFIX,teracloud.jp
+  - DOMAIN,infini-cloud.net
