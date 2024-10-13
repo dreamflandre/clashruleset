@@ -117,5 +117,5 @@ payload:
 # dandanplayapi
   - DOMAIN,api.dandanplay.net
 # inficloud
-  - DOMAIN-SUFFIX,teracloud.jp
-  - DOMAIN,infini-cloud.net
+#  - DOMAIN-SUFFIX,teracloud.jp
+#  - DOMAIN,infini-cloud.net
