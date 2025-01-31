@@ -48,6 +48,9 @@ payload:
   - DOMAIN,download4.epicgames.com
 # dandanplayapi
   - DOMAIN,api.dandanplay.net
+# 谷歌cn
+  - DOMAIN,connectivitycheck.gstatic.com
+  - DOMAIN-SUFFIX,services.googleapis.cn
 # inficloud
 #  - DOMAIN-SUFFIX,teracloud.jp
 #  - DOMAIN,infini-cloud.net
