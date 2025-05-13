@@ -28,6 +28,8 @@ payload:
   - DOMAIN-KEYWORD,BitTorrent
   - DOMAIN-KEYWORD,BitTorrent protocol
   - DOMAIN-KEYWORD,announce
+  - DOMAIN,tracker.kame.gay
+  - DOMAIN,kamept.com
 #机场自定义
   - DOMAIN,subcdn.cos.cat
   - DOMAIN,api.touhou.center
