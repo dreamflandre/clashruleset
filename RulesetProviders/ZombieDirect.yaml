@@ -8,6 +8,7 @@ payload:
   - PROCESS-NAME,anki.exe
   - PROCESS-NAME,QQ.exe
   - PROCESS-NAME,qbittorrent.exe
+  - PROCESS-NAME,transmission-qt.exe
 #恩山
   - DOMAIN-SUFFIX,right.com.cn
 #乌龟
