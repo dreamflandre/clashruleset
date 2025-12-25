@@ -30,11 +30,6 @@ payload:
   - DOMAIN-KEYWORD,BitTorrent protocol
   - DOMAIN-KEYWORD,announce
   - DOMAIN,tracker.kame.gay
-  - DOMAIN,kamept.com
-#机场自定义
-  - DOMAIN,subcdn.cos.cat
-  - DOMAIN,api.touhou.center
-  - DOMAIN-SUFFIX,speedtest.net
 #微软直连
   - DOMAIN-SUFFIX,azurefd.net
   - DOMAIN-SUFFIX,msftconnecttest.com
@@ -55,4 +50,6 @@ payload:
 #  - DOMAIN-SUFFIX,teracloud.jp
 #  - DOMAIN,infini-cloud.net
 #gogh
-  - DOMAIN,dist.assets.gogh-service.link
+#  - DOMAIN,dist.assets.gogh-service.link
+#gh代理
+  - DOMAIN-SUFFIX,gh-proxy.org
