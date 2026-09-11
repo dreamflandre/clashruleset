@@ -53,3 +53,5 @@ payload:
 #  - DOMAIN,dist.assets.gogh-service.link
 #gh代理
   - DOMAIN-SUFFIX,gh-proxy.org
+#测试
+  - DOMAIN,roriri.one
